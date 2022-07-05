@@ -5,25 +5,34 @@ import SubmissionBox from './SubmissionBox'
 
 const StreetView = () => {
 
+    const [answer, setAnswer] = useState(null)
+
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
     })
 
-    // useEffect(() => {
-    //     if (ref.current && !map) {
-    //         setMap(new window.google.maps.Map(ref.current, {
-    //             center: { lat: -34.397, lng: 150.644 },
-    //             zoom: 8,
-    //           }))
-    //     }
-    // }, [ref, map])
+    useEffect(() => {
+        setAnswer('28.519306,-81.376668')
+    }, [])
 
     if(!isLoaded) return <div>tis broke</div>
 
   return (
     <>
-    <SubmissionBox/>
+    <div>
+        <h1>MAPS!</h1>
+        <p>Please see map below</p>
+        <iframe
+            width="600"
+            height="450"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowfullscreen
+            src={`https://www.google.com/maps/embed/v1/streetview?key=${process.env.REACT_APP_MAPS_API_KEY}&location=${answer}&heading=210&pitch=10&fov=35`}
+        />
+    </div>
+    {/* <SubmissionBox/> */}
     {/* <div>ref={ref}</div> */}
     </>
   )
