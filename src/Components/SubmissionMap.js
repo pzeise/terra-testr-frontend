@@ -9,8 +9,6 @@ const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
     
     useEffect(() => {
       if (ref.current && !map) {
-        console.log('we in')
-        console.log(ref.current)
         setMap(new window.google.maps.Map(ref.current, {
             zoom: 2,
             center: { lat: 0, lng: 0 },
