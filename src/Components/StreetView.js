@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import { GoogleMap, useLoadScript, StreetViewPanorama, StreetViewService } from '@react-google-maps/api'
-import SubmissionBox from './SubmissionBox'
+import SubmissionMap from './SubmissionMap'
 
 
 const StreetView = () => {
@@ -38,7 +38,7 @@ const StreetView = () => {
             disableDefaultUI="true"
         /> */}
     </div>
-    <SubmissionBox/>
+    <SubmissionMap/>
     </>
   )
 }

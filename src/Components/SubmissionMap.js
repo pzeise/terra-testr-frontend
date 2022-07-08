@@ -1,22 +1,19 @@
 import React, { useEffect, useState, useRef, Children } from 'react'
-import SubmissionBox from './SubmissionBox'
-import Marker from './Marker';
 import { useDeepCompareEffectForMaps } from '../functions/mapFunctions';
 import styles from './css/submission.module.css'
 
-const TestingThings = ({ onClick, onIdle, children, style, ...options }) => {
+const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
 
     const ref = useRef(null);
     const [map, setMap] = useState();
-    const [marker, setMarker] = useState();
     
     useEffect(() => {
       if (ref.current && !map) {
         console.log('we in')
         console.log(ref.current)
         setMap(new window.google.maps.Map(ref.current, {
-            zoom: 4,
-            center: { lat: -33, lng: 151 },
+            zoom: 2,
+            center: { lat: 0, lng: 0 },
             disableDefaultUI: true,
           }));
       }
@@ -53,9 +50,8 @@ const TestingThings = ({ onClick, onIdle, children, style, ...options }) => {
           }
         })}
     </div>
-    {/* <SubmissionBox/> */}
     </>
   )
 }
 
-export default TestingThings
+export default SubmissionMap
