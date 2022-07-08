@@ -6,6 +6,7 @@ const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
 
     const ref = useRef(null);
     const [map, setMap] = useState();
+    const [hover, setHover] = useState(false);
     
     useEffect(() => {
       if (ref.current && !map) {
@@ -38,10 +39,18 @@ const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
         }
       }, [map, options]);
 
+    const setHoverOn = e => {
+        setHover(true)
+    }
+
+    const setHoverOff = e => {
+        setHover(false)
+    }
+
   return (
   <>
     <div>
-        <div className={styles.mapContainer} ref={ref} />
+        <div className={hover ? styles.guessing : styles.mapContainer} ref={ref} onMouseEnter={setHoverOn} onMouseLeave={setHoverOff} />
         {Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child, { map })
