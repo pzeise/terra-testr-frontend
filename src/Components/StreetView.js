@@ -13,7 +13,8 @@ const StreetView = (location) => {
           position: location.location,
           clickToGo: false,
           addressControl: false,
-          fullscreenControl: false          
+          fullscreenControl: false,
+          zoomControl: false          
           }));
       }
     }, [ref, map]);

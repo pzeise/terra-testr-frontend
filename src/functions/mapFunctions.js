@@ -31,3 +31,11 @@ export function useDeepCompareMemoize(value) {
 export function useDeepCompareEffectForMaps(callback, dependencies) {
     React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
   }
+
+
+export function isAnswerCloseEnough(guess, answer) {
+  const distance = window.google.maps.geometry.spherical.computeDistanceBetween(guess, answer)
+
+  if (distance < 10000) return true
+  else return false
+}
