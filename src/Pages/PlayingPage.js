@@ -12,9 +12,10 @@ import { isAnswerCloseEnough } from '../functions/mapFunctions'
 
 const PlayingPage = () => {
 
-  //both hold Lat/Lng object to compare for your answer
+  //both hold Lat/Lng object to compare for your answer { lat: 28.519306, lng: -81.376668 }
   const [click, setClick] = useState(null)
-  const [answer, setAnswer] = useState({ lat: 28.519306, lng: -81.376668 })
+  const [answer, setAnswer] = useState(null)
+  const [hint, setHint] = useState(0)
     
   const render = (status) => {
     // eslint-disable-next-line default-case
@@ -41,8 +42,17 @@ const PlayingPage = () => {
     if (test) {
       let copy = click
       setClick([copy, answer])
-    }
+    } else if (hint < 2) {
+      let x = hint + 1
+      setHint(x)
+    } else return (
+      <h1>You failed ;-;</h1>
+    )
   }
+
+  useEffect(() => {
+    //set answer to array we get back and itterate through the hints. 
+  }, [answer, hint])
 
   return (
     <>
