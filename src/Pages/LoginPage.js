@@ -29,6 +29,8 @@ function LoginPage() {
             setAuthenticated(true)
         })
     }
+    console.log(`${process.env.REACT_APP_BACK_END_DEV}`)
+    console.log(process.env.REACT_APP_CLIENT_ID)
 
     return (
         <div className={styles.loginPage}>
@@ -37,7 +39,7 @@ function LoginPage() {
                 <div className={styles.leftContainer}>
                     <h2 className={styles.signUp}>Log In To Start Playing!</h2>
                     <GoogleLogin
-                        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                        clientId='855851051556-ieno6rc3uhpui76osu4ajcm7fko3f7t8.apps.googleusercontent.com'
                         buttonText="Log in with Google"
                         onSuccess={handleLogin}
                         onFailure={handleLogin}
