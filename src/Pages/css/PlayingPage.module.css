@@ -1,0 +1,36 @@
+
+.playingPage {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    cursor: crosshair;
+}
+
+.mapContainer, .guessing {
+    border-radius: 5px;
+    height: 25vh;
+    width: 25vw;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    z-index: 5;
+    opacity: 0.5;
+    transition: all .5s;
+    transition-delay: 1s;
+    cursor: crosshair;
+}
+
+.guessing {
+    height: 40vh;
+    width: 40vw;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.streetView {
+    height: 100vh;
+  }
+
+.submissionBox {
+    cursor: crosshair;
+}

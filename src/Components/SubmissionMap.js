@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, Children } from 'react'
 import { useDeepCompareEffectForMaps } from '../functions/mapFunctions';
-import styles from './css/submission.module.css'
+import styles from '../Pages/css/PlayingPage.module.css'
 
 const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
 
@@ -14,6 +14,7 @@ const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
             zoom: 2,
             center: { lat: 0, lng: 0 },
             disableDefaultUI: true,
+            draggableCursor: 'crosshair'
           }));
       }
     }, [ref, map]);

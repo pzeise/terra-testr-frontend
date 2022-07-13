@@ -1,6 +1,8 @@
 //Middleware
 import React, {useState, useEffect, useContext} from 'react'
 import { Wrapper, Status } from '@googlemaps/react-wrapper'
+import axios from 'axios'
+import qs from 'qs'
 
 //Components
 import StreetView from '../Components/StreetView'
@@ -8,10 +10,9 @@ import SubmissionMap from '../Components/SubmissionMap'
 import Marker from '../Components/Marker'
 import UserContext from '../UserContext'
 
-//Functions
+//misc
+import styles from './css/PlayingPage.module.css'
 import { isAnswerCloseEnough } from '../functions/mapFunctions'
-import axios from 'axios'
-import qs from 'qs'
 
 const PlayingPage = () => {
 
@@ -70,34 +71,33 @@ const PlayingPage = () => {
         // }
       })
       .then(res => {
-        console.log(res)
         setAnswer(res.data)
       })
     }
   }, [user])
 
   useEffect(() => {
-    
     if (answer && hint >= 0) setLocation(answer.locations[hint])
   }, [answer, hint])
 
   return (
-    <>
+    <div className={styles.playingPage}>
         <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} render={render}>
-          <h2>this is the Street View</h2>
+          {/* <h2>this is the Street View</h2> */}
           {location ? <StreetView 
                         location={location}
                         key={hint}
+                        className={styles.streetView}
                         /> 
                       : null}
-          <h2>This is the submission</h2>
+          {/* <h2>This is the submission</h2> */}
           {click ? <button onClick={onSubmit}>ready to submit?</button> : null}
-            <SubmissionMap onClick={onClick}>
+            <SubmissionMap onClick={onClick} className={styles.submissionBox}>
               {click ? click.map(mark => <Marker position = {mark} />) : null}
             </SubmissionMap>
         </Wrapper>
         
-    </>
+    </div>
   )
 }
 
