@@ -29,8 +29,6 @@ function LoginPage() {
             setAuthenticated(true)
         })
     }
-    console.log(`${process.env.REACT_APP_BACK_END_DEV}`)
-    console.log(process.env.REACT_APP_CLIENT_ID)
 
     return (
         <div className={styles.loginPage}>
