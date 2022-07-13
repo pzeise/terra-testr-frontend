@@ -6,9 +6,10 @@ const StreetView = (location) => {
 
     const ref = useRef(null);
     const [map, setMap] = useState();
+    const [oldHint, setOldHint] = useState(null);
     
     useEffect(() => {
-      if (ref.current && !map) {
+      if (ref.current && (!oldHint || location.location._id !== oldHint.location._id)) {
         setMap(new window.google.maps.StreetViewPanorama(ref.current, {
           position: location.location,
           clickToGo: false,
@@ -16,8 +17,9 @@ const StreetView = (location) => {
           fullscreenControl: false,
           zoomControl: false          
           }));
+        setOldHint(location)
       }
-    }, [ref, map]);
+    }, [ref, location]);
     
 
   return (

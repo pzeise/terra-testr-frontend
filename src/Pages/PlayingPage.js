@@ -1,21 +1,26 @@
 //Middleware
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { Wrapper, Status } from '@googlemaps/react-wrapper'
 
 //Components
 import StreetView from '../Components/StreetView'
 import SubmissionMap from '../Components/SubmissionMap'
 import Marker from '../Components/Marker'
+import UserContext from '../UserContext'
 
 //Functions
 import { isAnswerCloseEnough } from '../functions/mapFunctions'
+import axios from 'axios'
+import qs from 'qs'
 
 const PlayingPage = () => {
 
   //both hold Lat/Lng object to compare for your answer { lat: 28.519306, lng: -81.376668 }
   const [click, setClick] = useState(null)
   const [answer, setAnswer] = useState(null)
+  const [location, setLocation] = useState(null)
   const [hint, setHint] = useState(0)
+  const { user } = useContext(UserContext)
     
   const render = (status) => {
     // eslint-disable-next-line default-case
@@ -36,12 +41,12 @@ const PlayingPage = () => {
   function onSubmit () {
     console.log('here we go')
     // const answerLatLng = new window.google.maps.LatLng(answer.lat, answer.lng)
-    let test = isAnswerCloseEnough(click[0], answer)
+    let test = isAnswerCloseEnough(click[0], location)
     console.log(test)
 
     if (test) {
       let copy = click
-      setClick([copy, answer])
+      setClick([copy, location])
     } else if (hint < 2) {
       let x = hint + 1
       setHint(x)
@@ -51,14 +56,40 @@ const PlayingPage = () => {
   }
 
   useEffect(() => {
-    //set answer to array we get back and itterate through the hints. 
+    console.log(user)
+    if (!answer && user) {
+      axios.get(process.env.NODE_ENV === 'production'
+      ? process.env.REACT_APP_BACK_END_PROD + "/answer"
+      : process.env.REACT_APP_BACK_END_DEV + "/answer", {
+        params: {
+          id: user.completed[0]
+        }
+        // ,
+        // paramsSerializer: params => {
+        //   return qs.stringify(params)
+        // }
+      })
+      .then(res => {
+        console.log(res)
+        setAnswer(res.data)
+      })
+    }
+  }, [user])
+
+  useEffect(() => {
+    
+    if (answer && hint >= 0) setLocation(answer.locations[hint])
   }, [answer, hint])
 
   return (
     <>
         <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} render={render}>
           <h2>this is the Street View</h2>
-          <StreetView location={answer}/>
+          {location ? <StreetView 
+                        location={location}
+                        key={hint}
+                        /> 
+                      : null}
           <h2>This is the submission</h2>
           {click ? <button onClick={onSubmit}>ready to submit?</button> : null}
             <SubmissionMap onClick={onClick}>
