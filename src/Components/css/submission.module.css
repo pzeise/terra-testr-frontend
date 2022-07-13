@@ -1,4 +1,11 @@
 .mapContainer{
-    height: 400px;
-    width: 800px;
+    margin: auto;
+    height: 200px;
+    width: 400px;
+}
+
+.guessing {
+    margin: auto;
+    height: 600px;
+    width: 1200px;
 }

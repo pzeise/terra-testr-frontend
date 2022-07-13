@@ -1,44 +1,28 @@
 import React, {useState, useEffect, useRef} from 'react'
-import { GoogleMap, useLoadScript, StreetViewPanorama, StreetViewService } from '@react-google-maps/api'
-import SubmissionMap from './SubmissionMap'
+import styles from './css/submission.module.css'
 
 
-const StreetView = () => {
+const StreetView = (location) => {
 
-    const [answer, setAnswer] = useState(null)
-
-
-    // const { isLoaded } = useLoadScript({
-    //     googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
-    // })
-
-    const mapContainerStyle = {
-        height: "400px",
-        width: "800px"
-      };
-
+    const ref = useRef(null);
+    const [map, setMap] = useState();
+    
     useEffect(() => {
-        setAnswer("28.519306,-81.376668")
-    }, [])
-
-    // if(!isLoaded) return <div>tis broke</div>
+      if (ref.current && !map) {
+        setMap(new window.google.maps.StreetViewPanorama(ref.current, {
+          position: location.location,
+          clickToGo: false,
+          addressControl: false,
+          fullscreenControl: false,
+          zoomControl: false          
+          }));
+      }
+    }, [ref, map]);
+    
 
   return (
     <>
-    <div>
-        <h1>MAPS!</h1>
-        <p>Please see map below</p>
-        {/* <iframe
-            width="600"
-            height="450"
-            style={{ border: 0 }}
-            loading="lazy"
-            allowfullscreen
-            src={`https://www.google.com/maps/embed/v1/streetview?key=${process.env.REACT_APP_MAPS_API_KEY}&location=${answer}&heading=210&pitch=10&fov=35`}
-            disableDefaultUI="true"
-        /> */}
-    </div>
-    <SubmissionMap/>
+      <div className={styles.mapContainer} ref={ref} />
     </>
   )
 }
