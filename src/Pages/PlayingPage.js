@@ -14,6 +14,8 @@ import SubmitButton from '../Components/SubmitButton'
 //misc
 import styles from './css/PlayingPage.module.css'
 import { isAnswerCloseEnough } from '../functions/mapFunctions'
+import axios from 'axios'
+import qs from 'qs'
 
 const PlayingPage = () => {
 
