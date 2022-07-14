@@ -1,8 +1,6 @@
 import React from "react"
 import { createCustomEqual } from "fast-equals"
 import { isLatLngLiteral } from "@googlemaps/typescript-guards"
-import { Wrapper, Status } from '@googlemaps/react-wrapper'
-
 
 export const deepCompareEqualsForMaps = createCustomEqual((deepEqual) => (a, b) => {
     if (

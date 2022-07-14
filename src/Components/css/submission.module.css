@@ -1,11 +1,16 @@
 .mapContainer{
-    margin: auto;
     height: 200px;
     width: 400px;
+    grid-column-start: var(--columns);
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    place-self: center;
+    z-index: 5
 }
 
 .guessing {
     margin: auto;
     height: 600px;
     width: 1200px;
+    z-index: 5
 }

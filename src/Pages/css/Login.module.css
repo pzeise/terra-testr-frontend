@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    color: #F8FFE5;
 }
 
 .loginPage {
@@ -21,7 +22,6 @@
 .signUp {
     margin: 40px;
     font-size: 30px;
-    color: rgba(165, 99, 99, 0.892);
     font-style: italic;
     font-weight: 500;
 }
@@ -34,6 +34,10 @@
 .gif {
     border-radius: 15%;
     display: inline-block;
+}
+
+.googleButton {
+    margin: 0 auto;
 }
 
 /* Mobile Accessibility */
