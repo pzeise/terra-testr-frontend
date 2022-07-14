@@ -34,3 +34,27 @@
 .submissionBox {
     cursor: crosshair;
 }
+
+.submitActive, .submitDull {
+    border: 0px;
+    position: absolute;
+    top: .5%;
+    right: 5%;
+    z-index: 5;
+    width: 25vw;
+    height: 4vh;
+    border-radius: 15px;
+    background-color: #4E4187;
+    opacity: 0.5;
+    color: #F8FFE5;
+    font-weight: bold;
+    font-size: large;
+    transition: all .5s;
+    transition-delay: 1s;
+}
+
+.submitActive {
+    width: 40vw;
+    transition-delay: 0s;
+    opacity: 1;
+}

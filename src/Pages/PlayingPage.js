@@ -9,6 +9,7 @@ import StreetView from '../Components/StreetView'
 import SubmissionMap from '../Components/SubmissionMap'
 import Marker from '../Components/Marker'
 import UserContext from '../UserContext'
+import SubmitButton from '../Components/SubmitButton'
 
 //misc
 import styles from './css/PlayingPage.module.css'
@@ -21,7 +22,7 @@ const PlayingPage = () => {
   const [answer, setAnswer] = useState(null)
   const [location, setLocation] = useState(null)
   const [hint, setHint] = useState(0)
-  const { user } = useContext(UserContext)
+  const { user, hover } = useContext(UserContext)
     
   const render = (status) => {
     // eslint-disable-next-line default-case
@@ -40,10 +41,12 @@ const PlayingPage = () => {
   }
 
   function onSubmit () {
-    console.log('here we go')
+    if(!click) return
+
     // const answerLatLng = new window.google.maps.LatLng(answer.lat, answer.lng)
     let test = isAnswerCloseEnough(click[0], location)
     console.log(test)
+
 
     if (test) {
       let copy = click
@@ -51,13 +54,11 @@ const PlayingPage = () => {
     } else if (hint < 2) {
       let x = hint + 1
       setHint(x)
-    } else return (
-      <h1>You failed ;-;</h1>
-    )
+      setClick(null)
+    } else return 
   }
 
   useEffect(() => {
-    console.log(user)
     if (!answer && user) {
       axios.get(process.env.NODE_ENV === 'production'
       ? process.env.REACT_APP_BACK_END_PROD + "/answer"
@@ -83,17 +84,15 @@ const PlayingPage = () => {
   return (
     <div className={styles.playingPage}>
         <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} render={render}>
-          {/* <h2>this is the Street View</h2> */}
           {location ? <StreetView 
                         location={location}
                         key={hint}
                         className={styles.streetView}
                         /> 
                       : null}
-          {/* <h2>This is the submission</h2> */}
-          {click ? <button onClick={onSubmit}>ready to submit?</button> : null}
+          <SubmitButton onSubmit={onSubmit} click={click} hover={hover}/>
             <SubmissionMap onClick={onClick} className={styles.submissionBox}>
-              {click ? click.map(mark => <Marker position = {mark} />) : null}
+              {click ? click.map((mark, idx) => <Marker position = {mark} key={idx}/>) : null}
             </SubmissionMap>
         </Wrapper>
         
