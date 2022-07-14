@@ -1,12 +1,13 @@
-import React, { useEffect, useState, useRef, Children } from 'react'
+import React, { useEffect, useState, useRef, Children, useContext } from 'react'
 import { useDeepCompareEffectForMaps } from '../functions/mapFunctions';
-import styles from './css/submission.module.css'
+import styles from '../Pages/css/PlayingPage.module.css'
+import UserContext from '../UserContext';
 
 const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
 
-    const ref = useRef(null);
-    const [map, setMap] = useState();
-    const [hover, setHover] = useState(false);
+    const ref = useRef(null)
+    const [map, setMap] = useState()
+    const {hover, setHover} = useContext(UserContext)
     
     useEffect(() => {
       if (ref.current && !map) {
@@ -14,6 +15,7 @@ const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
             zoom: 2,
             center: { lat: 0, lng: 0 },
             disableDefaultUI: true,
+            draggableCursor: 'crosshair'
           }));
       }
     }, [ref, map]);

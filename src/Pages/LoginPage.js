@@ -30,6 +30,10 @@ function LoginPage() {
         })
     }
 
+    useEffect(() => {
+        document.body.style.backgroundColor = '#4E4187'
+    }, [])
+
     return (
         <div className={styles.loginPage}>
             <h1 className={styles.title}>Terra Testr</h1>
@@ -37,19 +41,20 @@ function LoginPage() {
                 <div className={styles.leftContainer}>
                     <h2 className={styles.signUp}>Log In To Start Playing!</h2>
                     <GoogleLogin
-                        clientId='855851051556-ieno6rc3uhpui76osu4ajcm7fko3f7t8.apps.googleusercontent.com'
+                        clientId={process.env.REACT_APP_CLIENT_ID}
                         buttonText="Log in with Google"
                         onSuccess={handleLogin}
                         onFailure={handleLogin}
                         cookiePolicy={'single_host_origin'}
+                        className={styles.googleButton}
                     />
                     <br />
                     <a className={styles.signIn}>Sign in above via your Google Account</a>
                 </div>
-                {/* <div className={styles.rightContainer}>
-                    IMG Source: https://media1.giphy.com/media/1BWKyYQX2K55GwiUPc/giphy.gif?cid=ecf05e47eiw9b5x072c8bk6ivovo5jj1nb256ju5dn6jr4pr&rid=giphy.gif&ct=g
-                    <img className={styles.gif} src='/cozy.gif' />
-                </div> */}
+                <div className={styles.rightContainer}>
+                    {/* IMG Source: https://media1.giphy.com/media/1BWKyYQX2K55GwiUPc/giphy.gif?cid=ecf05e47eiw9b5x072c8bk6ivovo5jj1nb256ju5dn6jr4pr&rid=giphy.gif&ct=g */}
+                    <img className={styles.gif} src='https://media3.giphy.com/media/VI2UC13hwWin1MIfmi/giphy.gif?cid=ecf05e470roply655zexs6wmhv6i0ul8qqoxu9v72v0m8c35&rid=giphy.gif&ct=g' />
+                </div>
             </div>
         </div>
     )

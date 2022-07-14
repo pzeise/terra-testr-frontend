@@ -1,0 +1,7 @@
+.streetView {
+  grid-column-start: 1;
+  grid-column-end: span var(--columns);
+  grid-row-start: 1;
+  grid-row-end: 2;
+  height: 100vh;
+}

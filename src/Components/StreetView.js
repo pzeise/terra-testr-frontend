@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
-import styles from './css/submission.module.css'
+import styles from '../Pages/css/PlayingPage.module.css'
 
 
 const StreetView = (location) => {
@@ -15,7 +15,7 @@ const StreetView = (location) => {
           clickToGo: false,
           addressControl: false,
           fullscreenControl: false,
-          zoomControl: false          
+          zoomControl: false,  
           }));
         setOldHint(location)
       }
@@ -24,7 +24,7 @@ const StreetView = (location) => {
 
   return (
     <>
-      <div className={styles.mapContainer} ref={ref} />
+      <div className={styles.streetView} ref={ref} />
     </>
   )
 }
