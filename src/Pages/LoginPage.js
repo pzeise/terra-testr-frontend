@@ -19,9 +19,9 @@ function LoginPage() {
             xhrFields: { withCredentials: true },
             headers: {
                 "Content-Type": "application/json",
-                // "Access-Control-Allow-Origin": process.env.NODE_ENV === 'production'
-                //     ? process.env.REACT_APP_BACK_END_PROD
-                //     : process.env.REACT_APP_BACK_END_DEV
+                "Access-Control-Allow-Origin": process.env.NODE_ENV === 'production'
+                    ? process.env.REACT_APP_BACK_END_PROD
+                    : process.env.REACT_APP_BACK_END_DEV
             }
         }).then(response => {
             localStorage.setItem('token', JSON.stringify(response.data.token))
