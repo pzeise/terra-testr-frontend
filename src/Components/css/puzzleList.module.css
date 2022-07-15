@@ -38,7 +38,11 @@
     border-radius: 0 0 1rem 1rem;
     margin: 0;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    flex-direction: column;
   }
   
   .cardTitle h3 {

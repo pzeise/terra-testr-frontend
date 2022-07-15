@@ -37,6 +37,7 @@ function LoginPage() {
     return (
         <div className={styles.loginPage}>
             <h1 className={styles.title}>Terra Testr</h1>
+            <h2 className={styles.subTitle}>A game about exploring all the places we've been</h2>
             <div className={styles.container}>
                 <div className={styles.leftContainer}>
                     <h2 className={styles.signUp}>Log In To Start Playing!</h2>

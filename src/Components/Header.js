@@ -20,6 +20,14 @@ const Header = props => {
                 : process.env.REACT_APP_FRONT_END_DEV}>
                   <h1 className={styles.pageTitle}>Terra Testr</h1>
                 </a>
+      <div className={styles.accountLink}>
+        <div className={styles.dropdownContainer}>
+          <button className={styles.dropdownButton}>My Account</button>
+          <div className={styles.dropdownOptions}>
+            <a onClick={logOut} href='#'>Logout</a>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

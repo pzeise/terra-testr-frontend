@@ -6,21 +6,31 @@
 
 .loginPage {
     text-align: center;
+    height: 100vh;
 }
 
-.container {
+.container, .leftContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.leftContainer{
+    flex-direction: column;
+}
+
 .title {
     font-family: 'Karla', sans-serif;
-    margin: 5%;
+    padding: 5% 0 2% 0;
     font-size: 50px;
 }
 
+.subTitle {
+    margin-bottom: 3%;
+}
+
 .signUp {
+    font-family: 'Karla', sans-serif;
     margin: 40px;
 }
 
@@ -31,14 +41,15 @@
 .gif {
     border-radius: 15%;
     display: inline-block;
+    margin-left: 5%;
 }
 
 .googleButton {
-    margin: 0 auto;
+    text-align: center;
 }
 
 /* Mobile Accessibility */
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
 
 .container {
     display: inline-block;
@@ -53,10 +64,10 @@
     margin-top: 10vh;
 }
 
-}
+} */
 
 /* Tablet Accessibility */
-@media only screen and (min-width: 600px) and (max-width: 820px)  {
+/* @media only screen and (min-width: 600px) and (max-width: 820px)  {
 
 .container {
     display: inline-block;
@@ -71,4 +82,4 @@
     margin-top: 12vh;
 }
 
-}
+} */
