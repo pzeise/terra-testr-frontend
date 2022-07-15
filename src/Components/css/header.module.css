@@ -1,0 +1,10 @@
+.pageTitle {
+    font-family: 'Karla', sans-serif;
+    color: #F8FFE5;
+	padding-top: 5vh;
+	font-size: 45px;
+}
+
+.headerContainer {
+	background: linear-gradient(#3083DC, #4E4187);
+}

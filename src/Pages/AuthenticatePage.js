@@ -6,6 +6,8 @@ import axios from 'axios'
 import UserContext from '../UserContext.js'
 import LoginPage from './LoginPage.js'
 import PlayingPage from './PlayingPage.js'
+import MainMenu from './MainMenu.js'
+import AddLocation from './AddLocation.js'
 
 const AuthenticatePage = () => {
     const { authenticated, setAuthenticated, setUser } = useContext(UserContext)
@@ -34,7 +36,9 @@ const AuthenticatePage = () => {
                     <div className='bodyContainerLayout'>
                         <div className='bodyContentLayout'>
                             <Routes>
-                                <Route path='/' element={<PlayingPage/>} />
+                                <Route path='/' element={<MainMenu/>} />
+                                <Route path='/play/:id' element={<PlayingPage/>} />
+                                <Route path='/add' element={<AddLocation/>} />
                             </Routes>
                         </div>
                     </div>
