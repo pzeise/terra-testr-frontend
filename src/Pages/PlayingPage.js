@@ -56,6 +56,7 @@ const PlayingPage = () => {
       let x = hint + 1
       setHint(x)
       setClick(null)
+      setDisplayHint(true)
     } else return 
   }
 

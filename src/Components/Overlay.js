@@ -20,9 +20,12 @@ const Overlay = ({hint, setDisplayHint}) => {
     return (
         <div className={styles.overlayContainer}>
             <div className={styles.overlayCanvas}></div>
-            {sec === 0 ? <div className={styles.overlayTitle}>GET READY!</div> : null}
-            {sec === 1 ? <div className={styles.overlayTitle}>GET SET!</div> : null}
-            {sec === 2 ? <div className={styles.overlayTitle}>GO!</div> : null}
+            {hint === 0 ? <div className={styles.overlayTitle}>Welcome to the Game</div> : null}
+            {hint === 1 ? <div className={styles.overlayTitle}>Not Quite Try Again!</div> : null}
+            {hint === 2 ? <div className={styles.overlayTitle}>Remember a landmark is here!</div> : null}
+            {sec === 0 ? <div className={styles.overlayCounter}>GET READY!</div> : null}
+            {sec === 1 ? <div className={styles.overlayCounter}>GET SET!</div> : null}
+            {sec === 2 ? <div className={styles.overlayCounter}>GO!</div> : null}
         </div>
     )
 }
