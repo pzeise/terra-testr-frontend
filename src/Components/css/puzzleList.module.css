@@ -23,7 +23,7 @@
   .card {
     border-radius: 1rem;
     display: grid;
-    grid-template-rows: 20vh 10vh;
+    grid-template-rows: 150px 75px;
   }
   
   .cardImage {
