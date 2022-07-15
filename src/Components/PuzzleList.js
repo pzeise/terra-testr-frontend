@@ -36,7 +36,7 @@ const PuzzleList = ({puzzles, setPuzzles}) => {
     return (
         <section className={styles.container}>
             {puzzles.map((puzzle, idx) => (
-                <Link to={`/play/${puzzle._id}`} key={idx}>
+                <Link to={`/play/${puzzle._id}`} key={idx} style={{textDecoration: 'none'}}>
                     <div className={styles.card}>
                         <div className={styles.cardImage}>
                             <img className={styles.cardImageActual} 
@@ -50,7 +50,7 @@ const PuzzleList = ({puzzles, setPuzzles}) => {
                     </div>
                 </Link>
             ))}
-            <Link to={`/add`}>
+            <Link to={`/add`} style={{textDecoration: 'none'}}>
                 <div className={styles.card}>
                     <div className={styles.cardImage}>
                         <img className={styles.cardImageActual} 

@@ -3,6 +3,7 @@ body {
   padding: 0;
   color: #F8FFE5;
   font-family: 'Inconsolata', monospace;
+  background: linear-gradient(#4E4187, #3083DC);
 }
 
 h1, h2, h3, h4, h5, h6, div, p {

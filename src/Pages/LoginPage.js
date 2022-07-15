@@ -30,9 +30,9 @@ function LoginPage() {
         })
     }
 
-    useEffect(() => {
-        document.body.style.backgroundColor = '#4E4187'
-    }, [])
+    // useEffect(() => {
+    //     document.body.style.background = 'linear-gradient(#3083DC, #4E4187);'
+    // }, [])
 
     return (
         <div className={styles.loginPage}>
