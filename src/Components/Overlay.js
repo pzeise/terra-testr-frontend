@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styles from './css/overlay.module.css'
 
-const Overlay = ({hint, setDisplayHint}) => {
+const Overlay = ({hint, setDisplayHint, distance}) => {
     const [sec, setSec] = useState(0)
 
     function tick () {
@@ -23,6 +23,7 @@ const Overlay = ({hint, setDisplayHint}) => {
             {hint === 0 ? <div className={styles.overlayTitle}>Welcome to the Game</div> : null}
             {hint === 1 ? <div className={styles.overlayTitle}>Not Quite Try Again!</div> : null}
             {hint === 2 ? <div className={styles.overlayTitle}>Remember a landmark is here!</div> : null}
+            {hint >= 1 ? <div className={styles.overlayDistance}>{`You were ${distance}km from the location`}</div> : null}
             {sec === 0 ? <div className={styles.overlayCounter}>GET READY!</div> : null}
             {sec === 1 ? <div className={styles.overlayCounter}>GET SET!</div> : null}
             {sec === 2 ? <div className={styles.overlayCounter}>GO!</div> : null}

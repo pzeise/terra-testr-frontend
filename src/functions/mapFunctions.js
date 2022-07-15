@@ -1,6 +1,7 @@
 import React from "react"
 import { createCustomEqual } from "fast-equals"
 import { isLatLngLiteral } from "@googlemaps/typescript-guards"
+import axios from "axios";
 
 export const deepCompareEqualsForMaps = createCustomEqual((deepEqual) => (a, b) => {
     if (
@@ -31,9 +32,15 @@ export function useDeepCompareEffectForMaps(callback, dependencies) {
   }
 
 
-export function isAnswerCloseEnough(guess, answer) {
-  const distance = window.google.maps.geometry.spherical.computeDistanceBetween(guess, answer)
+export function measureDistance(guess, answer) {
+  let distance = Math.floor(window.google.maps.geometry.spherical.computeDistanceBetween(guess, answer))
+  console.log(distance)
+  return distance
+}
 
-  if (distance < 10000) return true
-  else return false
+export function recordWin(user, answer, hint) {
+  axios.put((process.env.NODE_ENV === 'production'
+          ? process.env.REACT_APP_BACK_END_PROD
+          : process.env.REACT_APP_BACK_END_DEV) + `/user/${user._id}/${answer._id}/${hint+1}`)
+          .catch(console.error)
 }

@@ -17,7 +17,7 @@
 }
 
 .overlayCanvas {
-    opacity: .25;
+    opacity: .60;
     background-color: #3083DC;
 }
 
@@ -29,5 +29,16 @@
 
 .overlayCounter {
     font-size: 80px;
+    z-index: 101;
+}
+
+.overlayFootnote {
+    margin-top: 5rem;
+    font-size: 40px;
+    z-index: 101;
+}
+
+.overlayDistance {
+    font-size: 40px;
     z-index: 101;
 }
