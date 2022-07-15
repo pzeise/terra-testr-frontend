@@ -11,6 +11,7 @@ import SubmissionMap from '../Components/SubmissionMap'
 import Marker from '../Components/Marker'
 import UserContext from '../UserContext'
 import SubmitButton from '../Components/SubmitButton'
+import Overlay from '../Components/Overlay'
 
 //misc
 import styles from './css/PlayingPage.module.css'
@@ -23,6 +24,7 @@ const PlayingPage = () => {
   const [answer, setAnswer] = useState(null)
   const [location, setLocation] = useState(null)
   const [hint, setHint] = useState(0)
+  const [displayHint, setDisplayHint] = useState(true)
   const { user, hover } = useContext(UserContext)
   const answerID = useParams()
     
@@ -75,6 +77,7 @@ const PlayingPage = () => {
 
   return (
     <div className={styles.playingPage}>
+      {displayHint ? <Overlay hint={hint} setDisplayHint={setDisplayHint}/> : null}
         <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} render={render}>
           {location ? <StreetView 
                         location={location}

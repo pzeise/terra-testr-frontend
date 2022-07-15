@@ -3,7 +3,6 @@
     position: relative;
     height: 100vh;
     margin: 0;
-    cursor: crosshair;
 }
 
 .mapContainer, .guessing {
@@ -57,4 +56,5 @@
     width: 40vw;
     transition-delay: 0s;
     opacity: 1;
+    cursor: pointer;
 }
