@@ -11,10 +11,13 @@ import SubmissionMap from '../Components/SubmissionMap'
 import Marker from '../Components/Marker'
 import UserContext from '../UserContext'
 import SubmitButton from '../Components/SubmitButton'
+import Overlay from '../Components/Overlay'
+import WinOverlay from '../Components/WinOverlay'
+import LossOverlay from '../Components/LossOverlay'
 
 //misc
 import styles from './css/PlayingPage.module.css'
-import { isAnswerCloseEnough } from '../functions/mapFunctions'
+import { measureDistance, recordWin } from '../functions/mapFunctions'
 
 const PlayingPage = () => {
 
@@ -23,6 +26,10 @@ const PlayingPage = () => {
   const [answer, setAnswer] = useState(null)
   const [location, setLocation] = useState(null)
   const [hint, setHint] = useState(0)
+  const [distance, setDistance] = useState(null)
+  const [displayHint, setDisplayHint] = useState(true)
+  const [displayWin, setDisplayWin] = useState(false)
+  const [displayLoss, setDisplayLoss] = useState(false)
   const { user, hover } = useContext(UserContext)
   const answerID = useParams()
     
@@ -44,17 +51,21 @@ const PlayingPage = () => {
 
   function onSubmit () {
     if(!click) return
-    let test = isAnswerCloseEnough(click[0], location)
+    let test = measureDistance(click[0], location)
+    setDistance(test.toLocaleString("en-US"))
 
+    let x = hint + 1
+    setHint(x)
 
-    if (test) {
+    if (test < 10000) {
       let copy = click
       setClick([copy, location])
+      recordWin(user, answer, hint)
+      setDisplayWin(true)
     } else if (hint < 2) {
-      let x = hint + 1
-      setHint(x)
       setClick(null)
-    } else return 
+      setDisplayHint(true)
+    } else setDisplayLoss(true) 
   }
 
   useEffect(() => {
@@ -69,12 +80,15 @@ const PlayingPage = () => {
   }, [user])
 
   useEffect(() => {
-    if (answer && hint >= 0) {
+    if (answer && hint >= 0 && !displayWin && !displayLoss) {
       setLocation(answer.locations[hint])}
   }, [answer, hint])
 
   return (
     <div className={styles.playingPage}>
+      {displayHint ? <Overlay hint={hint} setDisplayHint={setDisplayHint} distance={distance}/> : null}
+      {displayWin ? <WinOverlay answer={answer} distance={distance}/> : null}
+      {displayLoss ? <LossOverlay distance={distance}/> : null}
         <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} render={render}>
           {location ? <StreetView 
                         location={location}

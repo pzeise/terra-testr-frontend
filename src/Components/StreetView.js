@@ -12,7 +12,7 @@ const StreetView = (location) => {
       if (ref.current && (!oldHint || location.location._id !== oldHint.location._id)) {
         setMap(new window.google.maps.StreetViewPanorama(ref.current, {
           position: location.location,
-          clickToGo: false,
+          // clickToGo: false,
           addressControl: false,
           fullscreenControl: false,
           zoomControl: false,  
