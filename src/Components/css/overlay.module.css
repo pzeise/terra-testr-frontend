@@ -1,0 +1,44 @@
+.overlayContainer {
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.overlayCanvas, .overlayContainer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.overlayCanvas {
+    opacity: .60;
+    background-color: #3083DC;
+}
+
+.overlayTitle {
+    font-size: 100px;
+    font-family: 'Karla', sans-serif;
+    z-index: 101;
+}
+
+.overlayCounter {
+    font-size: 80px;
+    z-index: 101;
+}
+
+.overlayFootnote {
+    margin-top: 5rem;
+    font-size: 40px;
+    z-index: 101;
+}
+
+.overlayDistance {
+    font-size: 40px;
+    z-index: 101;
+}
