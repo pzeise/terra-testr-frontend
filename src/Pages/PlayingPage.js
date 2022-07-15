@@ -3,6 +3,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import { Wrapper, Status } from '@googlemaps/react-wrapper'
 import axios from 'axios'
 import qs from 'qs'
+import { useParams } from 'react-router'
 
 //Components
 import StreetView from '../Components/StreetView'
@@ -23,6 +24,7 @@ const PlayingPage = () => {
   const [location, setLocation] = useState(null)
   const [hint, setHint] = useState(0)
   const { user, hover } = useContext(UserContext)
+  const answerID = useParams()
     
   const render = (status) => {
     // eslint-disable-next-line default-case
@@ -42,10 +44,7 @@ const PlayingPage = () => {
 
   function onSubmit () {
     if(!click) return
-
-    // const answerLatLng = new window.google.maps.LatLng(answer.lat, answer.lng)
     let test = isAnswerCloseEnough(click[0], location)
-    console.log(test)
 
 
     if (test) {
@@ -60,17 +59,9 @@ const PlayingPage = () => {
 
   useEffect(() => {
     if (!answer && user) {
-      axios.get(process.env.NODE_ENV === 'production'
-      ? process.env.REACT_APP_BACK_END_PROD + "/answer"
-      : process.env.REACT_APP_BACK_END_DEV + "/answer", {
-        params: {
-          id: user.completed[0]
-        }
-        // ,
-        // paramsSerializer: params => {
-        //   return qs.stringify(params)
-        // }
-      })
+      axios.get((process.env.NODE_ENV === 'production'
+      ? process.env.REACT_APP_BACK_END_PROD
+      : process.env.REACT_APP_BACK_END_DEV) + `/answer/${answerID.id}`, {})
       .then(res => {
         setAnswer(res.data)
       })
@@ -78,7 +69,8 @@ const PlayingPage = () => {
   }, [user])
 
   useEffect(() => {
-    if (answer && hint >= 0) setLocation(answer.locations[hint])
+    if (answer && hint >= 0) {
+      setLocation(answer.locations[hint])}
   }, [answer, hint])
 
   return (

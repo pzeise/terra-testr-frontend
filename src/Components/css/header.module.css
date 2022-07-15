@@ -1,0 +1,74 @@
+.pageTitle {
+	text-align: left;
+    padding: 2vh;
+    font-family: 'Karla', sans-serif;
+    color: #F8FFE5;
+	padding-top: 2vh;
+	font-size: 45px;
+}
+
+.accountLink {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.dropdownButton {
+	margin: 1rem;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+	border-radius: 1rem;
+	min-width: 150px;
+    font-family: 'Inconsolata', monospace;
+    background: linear-gradient(#2EBFA5, #7DDE92);
+	cursor: pointer;
+}
+  
+.dropdownContainer {
+	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+  
+.dropdownOptions {
+	display: none;
+    background: linear-gradient(#2EBFA5, #7DDE92);
+	min-width: 100px;
+	box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.1);
+	z-index: 1;
+    border: none;
+	border-radius: 1rem;
+}
+
+.dropdownOptions a {
+	color: black;
+	padding: 10px 10px;
+	text-decoration: none;
+	display: block;
+	font-size: 12px;
+	text-align: center;
+    border: none;
+	border-radius: 1rem;
+}
+  
+.dropdownOptions a:hover {
+	background-color: #3083DC;
+}
+  
+.dropdownContainer:hover .dropdownOptions {
+	display: block;
+}
+
+.dropdownContainer:hover .dropdownOptions .myBooks {
+	display: none;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}

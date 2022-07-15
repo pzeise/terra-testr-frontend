@@ -1,0 +1,33 @@
+.topOfPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 50vh;
+    margin: 2vh 20vw 2vh 20vw;
+}
+
+
+.topOfPage h1 {
+    font-size: 100px;
+    font-family: 'Karla', sans-serif;
+    padding-bottom: 3vh;
+}
+
+.topOfPage h2 {
+    font-size: 40px;
+    font-family: 'Karla', sans-serif;
+}
+
+.topOfPage div {
+    font-size: 20px;
+    font-family: 'Inconsolata', monospace;
+}
+
+.randomButton {
+    border-radius: 5rem;
+    background: linear-gradient(#2EBFA5, #7DDE92);
+    margin-top: 4vh;
+    padding: 1rem;
+}
