@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import Header from '../Components/Header'
-import Footer from '../Components/Footer'
 import PuzzleList from '../Components/PuzzleList'
 import styles from './css/MainMenu.module.css'
 
@@ -24,7 +23,6 @@ const MainMenu = () => {
     //pick random quiz
     useEffect(() => {
       if(puzzles && "show" in puzzles[0]) {
-        console.log('sorting')
         let x = [...puzzles.sort((a, b) => {
           if (a.show || !b.show) return 1
           else return -1

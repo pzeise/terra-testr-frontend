@@ -30,7 +30,7 @@ const PlayingPage = () => {
   const [displayHint, setDisplayHint] = useState(true)
   const [displayWin, setDisplayWin] = useState(false)
   const [displayLoss, setDisplayLoss] = useState(false)
-  const { user, hover } = useContext(UserContext)
+  const { user, hover, reRender, setRerender } = useContext(UserContext)
   const answerID = useParams()
     
   const render = (status) => {
@@ -49,6 +49,13 @@ const PlayingPage = () => {
     setClick([e.latLng])
   }
 
+  async function updateUserOnWin () {
+    recordWin(user, answer, hint)
+    .then(element => {
+      setRerender(reRender+1)})
+    .catch(console.error)
+  }
+
   function onSubmit () {
     if(!click) return
     let test = measureDistance(click[0], location)
@@ -60,8 +67,8 @@ const PlayingPage = () => {
     if (test < 10000) {
       let copy = click
       setClick([copy, location])
-      recordWin(user, answer, hint)
       setDisplayWin(true)
+      updateUserOnWin()
     } else if (hint < 2) {
       setClick(null)
       setDisplayHint(true)

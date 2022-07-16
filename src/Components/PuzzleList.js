@@ -24,7 +24,7 @@ const PuzzleList = ({puzzles, setPuzzles}) => {
             } else puzzle.show = false
         })
         setPuzzles([...runningList])
-    }, [])
+    }, [user])
 
 
     // useEffect(() => {

@@ -10,7 +10,7 @@ import MainMenu from './MainMenu.js'
 import AddLocation from './AddLocation.js'
 
 const AuthenticatePage = () => {
-    const { authenticated, setAuthenticated, setUser } = useContext(UserContext)
+    const { authenticated, rerender, setAuthenticated, setUser } = useContext(UserContext)
 
     useEffect(() => {
         axios.get(process.env.NODE_ENV === 'production'
@@ -24,7 +24,7 @@ const AuthenticatePage = () => {
                 setAuthenticated(authenticated)
                 setUser(user)
             })
-    }, [])
+    }, [rerender])
 
 
   return (
