@@ -18,6 +18,7 @@
     "axios": "^0.27.2",
     "babel-plugin-macros": "^3.1.0",
     "fast-equals": "^4.0.1",
+    "netlify-cli": "^10.10.0",
     "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
