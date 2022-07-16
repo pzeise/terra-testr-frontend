@@ -9,12 +9,14 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [hover, setHover] = useState(false)
+  const [rerender, setRerender] = useState(0)
 
   return (
     <UserContext.Provider value={{
         user, setUser,
         authenticated, setAuthenticated,
-        hover, setHover
+        hover, setHover,
+        rerender, setRerender
     }}>
       <AuthenticatePage />
     </UserContext.Provider>
