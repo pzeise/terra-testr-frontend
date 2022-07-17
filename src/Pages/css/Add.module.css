@@ -1,0 +1,24 @@
+.addContainer {
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    flex-direction: column;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    height: 100vh;
+    background: linear-gradient(#4E4187, #3083DC);
+    z-index: 0;
+}
+
+.addTitle {
+    font-family: 'Karla', sans-serif;
+    margin-top: 15vh;
+
+}
+
+.addContainer > h4 {
+    margin-bottom: 4rem
+}
