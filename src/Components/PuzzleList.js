@@ -46,7 +46,7 @@ const PuzzleList = () => {
                         </div>
                         <div className={styles.cardTitle}>
                             <h3>{puzzle.show ? puzzle.endState.title : 'Mystery Loaction'}</h3>
-                            {puzzle.show ? <h4>{`Found in ${puzzle.hint}` + (puzzle.hint > 1? ' hints' : ' hint')}</h4> : null}
+                            {puzzle.show ? <h4>{`Found in ${puzzle.hints}` + (puzzle.hints > 1? ' hints' : ' hint')}</h4> : null}
                         </div>
                     </div>
                 </Link>

@@ -25,11 +25,11 @@ const MainMenu = () => {
     useEffect(() => {
       if(puzzles && "show" in puzzles[0]) {
         let x = [...puzzles.sort((a, b) => {
-          if (a.show || !b.show) return 1
-          else return -1
+          if (a.show || !b.show) return -1
+          else return 1
         })]
 
-        setRandom(x[0])
+        setRandom(x[x.length-1])
       }
     }, [puzzles])
 
