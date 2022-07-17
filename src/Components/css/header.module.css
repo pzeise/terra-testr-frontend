@@ -1,3 +1,7 @@
+.headerContainer > * {
+	z-index: 5;
+}
+
 .pageTitle {
 	text-align: left;
     padding: 2vh;
@@ -5,6 +9,8 @@
     color: #F8FFE5;
 	padding-top: 2vh;
 	font-size: 45px;
+	position: relative;
+	z-index: 5;
 }
 
 .accountLink {
@@ -40,7 +46,7 @@
     background: linear-gradient(#2EBFA5, #7DDE92);
 	min-width: 100px;
 	box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.1);
-	z-index: 1;
+	z-index: 5;
     border: none;
 	border-radius: 1rem;
 }

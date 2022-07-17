@@ -5,10 +5,12 @@ const UserContext = createContext({
     user: null,
     hover: false, 
     rerender: 0,
+    puzzles: null,
     setAuthenticated: (auth) => {},
     setUser: (user) => {},
-    setHover: (user) => {},
-    setRerender: (user) => {}
+    setHover: (hover) => {},
+    setRerender: (rerender) => {},
+    setPuzzles: (puzzles) => {}
 })
 
 export default UserContext

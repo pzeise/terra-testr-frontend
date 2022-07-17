@@ -1,20 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import Header from '../Components/Header'
 import PuzzleList from '../Components/PuzzleList'
 import styles from './css/MainMenu.module.css'
+import UserContext from '../UserContext'
 
 const MainMenu = () => {
-    const [puzzles, setPuzzles] = useState(null)
+    const {user, puzzles, setPuzzles} = useContext(UserContext)
     const [random, setRandom] = useState(null)
 
 
     useEffect(() => {
-          axios.get(process.env.NODE_ENV === 'production'
-          ? process.env.REACT_APP_BACK_END_PROD + "/answer"
-          : process.env.REACT_APP_BACK_END_DEV + "/answer", 
+          axios.get((process.env.NODE_ENV === 'production'
+          ? process.env.REACT_APP_BACK_END_PROD
+          : process.env.REACT_APP_BACK_END_DEV) + `/answer/forUser/${user._id}`, 
           {})
           .then(res => setPuzzles(res.data))
           .catch(console.error)
@@ -24,11 +25,11 @@ const MainMenu = () => {
     useEffect(() => {
       if(puzzles && "show" in puzzles[0]) {
         let x = [...puzzles.sort((a, b) => {
-          if (a.show || !b.show) return 1
-          else return -1
+          if (a.show || !b.show) return -1
+          else return 1
         })]
 
-        setRandom(x[0])
+        setRandom(x[x.length-1])
       }
     }, [puzzles])
 
@@ -50,7 +51,7 @@ const MainMenu = () => {
                 <div className={styles.randomButton}>Jump Right in</div>
               </Link> : null}
             </div>
-              <PuzzleList puzzles={puzzles} setPuzzles={setPuzzles}/>
+              <PuzzleList/>
           </main>
       </>
     )

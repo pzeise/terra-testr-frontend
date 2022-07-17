@@ -30,7 +30,7 @@ const PlayingPage = () => {
   const [displayHint, setDisplayHint] = useState(true)
   const [displayWin, setDisplayWin] = useState(false)
   const [displayLoss, setDisplayLoss] = useState(false)
-  const { user, hover, reRender, setRerender } = useContext(UserContext)
+  const { user, hover, reRender, setUser } = useContext(UserContext)
   const answerID = useParams()
     
   const render = (status) => {
@@ -50,9 +50,13 @@ const PlayingPage = () => {
   }
 
   async function updateUserOnWin () {
-    recordWin(user, answer, hint)
+    axios.put((process.env.NODE_ENV === 'production'
+          ? process.env.REACT_APP_BACK_END_PROD
+          : process.env.REACT_APP_BACK_END_DEV) + `/user/${user._id}/${answer._id}/${hint+1}`)
     .then(element => {
-      setRerender(reRender+1)})
+      console.log((element))
+      setUser(element.data)})
+      setDisplayWin(true)
     .catch(console.error)
   }
 
@@ -67,7 +71,6 @@ const PlayingPage = () => {
     if (test < 10000) {
       let copy = click
       setClick([copy, location])
-      setDisplayWin(true)
       updateUserOnWin()
     } else if (hint < 2) {
       setClick(null)
