@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import styles from './css/locationForm.module.css'
+import UserContext from '../UserContext'
 import { useNavigate } from 'react-router-dom'
 import { saveAnswer } from '../functions/apiFunctions'
 
@@ -9,22 +10,31 @@ const LocationForm = () => {
     const [formState, setFormState] = useState({})
     const [newLoc, setNewLoc] = useState({})
     const [entry, setEntry] = useState(0)
+    const {rerender, setRerender} = useContext(UserContext)
 
     const handleChange = e => {
-        setFormState({...formState, [e.target.id]: [e.target.value]})
+        setFormState({...formState, [e.target.id]: e.target.value})
     }
 
     const handleSubmit = e => {
         e.preventDefault()
         console.log('submitted')
-        setNewLoc(formState)
-        setEntry(entry+1)
+        if (formState !== newLoc){
+            setNewLoc(formState)
+            setEntry(entry+1)
+        }
     }
 
-    const handlePost = e => {
+    async function handlePost (e) {
         e.preventDefault()
         saveAnswer(newLoc)
-        nav('/')
+        .then(element => {
+            //this might work???
+            //console.log(element)
+            //setPuzzles([...puzzles, element])
+            setRerender(rerender+1)
+            nav('/')
+        })
     }
 
     return (
@@ -77,9 +87,11 @@ const LocationForm = () => {
                         value={formState.image}
                     />
                 </div>
-                <button className={styles.formNext} onClick={handleSubmit}>Next</button>
+                {formState.image && formState.title 
+                ? <button className={styles.formNext} onClick={handleSubmit}>Next</button> 
+                : null}
             </form> : null}
-            {entry > 0 && entry < 3 ? 
+            {entry > 0 && entry < 4 ? 
             <form>
                 <div className={styles.formInputs}>                
                     <label htmlFor={`Lat${entry}`}>Latitude:</label>
@@ -88,7 +100,7 @@ const LocationForm = () => {
                         placeholder=""
                         id={`Lat${entry}`}
                         onChange={handleChange}
-                        value={formState[`Lng${entry}`]}
+                        value={formState[`Lat${entry}`]}
                     />
                 </div>
                 <div className={styles.formInputs}>
@@ -101,9 +113,11 @@ const LocationForm = () => {
                         value={formState[`Lng${entry}`]}
                     />
                 </div>
-                <button className={styles.formNext} onClick={handleSubmit}>Next</button>
+                {formState[`Lng${entry}`] && formState[`Lat${entry}`] 
+                ? <button className={styles.formNext} onClick={handleSubmit}>Next</button> 
+                : null}
             </form> : null}
-            {entry >= 3 ? 
+            {entry > 3 ? 
             <button className={styles.formNext} onClick={handlePost}>Save</button> //real shit here
             : null }
         </div>
