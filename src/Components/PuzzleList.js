@@ -4,8 +4,8 @@ import UserContext from '../UserContext'
 import { Link } from 'react-router-dom'
 
 
-const PuzzleList = ({puzzles, setPuzzles}) => {
-    const {user} = useContext(UserContext)
+const PuzzleList = () => {
+    const {user, puzzles, setPuzzles} = useContext(UserContext)
     // const [scroll, setScroll] = useState(1)
 
     // function handleScroll () {
@@ -14,17 +14,18 @@ const PuzzleList = ({puzzles, setPuzzles}) => {
     //     setScroll(scroll+1)
     // }
 
-    useEffect(() => {
-        let runningList = puzzles
-        runningList.forEach(puzzle => {
-            let x = user.completed.find(el => el.id === puzzle._id)
-            if (x) {
-                puzzle.show = true
-                puzzle.hint = x.hints
-            } else puzzle.show = false
-        })
-        setPuzzles([...runningList])
-    }, [user])
+    // useEffect(() => {
+    //     console.log('sorting puzzle list')
+    //     let runningList = puzzles
+    //     runningList.forEach(puzzle => {
+    //         let x = user.completed.find(el => el.id === puzzle._id)
+    //         if (x) {
+    //             puzzle.show = true
+    //             puzzle.hint = x.hints
+    //         } else puzzle.show = false
+    //     })
+    //     setPuzzles([...runningList])
+    // }, [user])
 
 
     // useEffect(() => {

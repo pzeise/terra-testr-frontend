@@ -15,7 +15,7 @@ const Marker = (position) => {
   }, [marker])
 
   useEffect(() => {
-    if (marker) {
+    if (marker && !(position instanceof window.google.maps.LatLng)) {
       marker.setOptions(position)
     }
   }, [marker, position])

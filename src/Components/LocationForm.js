@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react'
 import styles from './css/locationForm.module.css'
 import UserContext from '../UserContext'
 import { useNavigate } from 'react-router-dom'
-import { saveAnswer } from '../functions/apiFunctions'
+import axios from 'axios'
 
 const LocationForm = () => {
 
@@ -10,7 +10,7 @@ const LocationForm = () => {
     const [formState, setFormState] = useState({})
     const [newLoc, setNewLoc] = useState({})
     const [entry, setEntry] = useState(0)
-    const {rerender, setRerender} = useContext(UserContext)
+    const {rerender, setRerender, puzzles, setPuzzles} = useContext(UserContext)
 
     const handleChange = e => {
         setFormState({...formState, [e.target.id]: e.target.value})
@@ -27,11 +27,12 @@ const LocationForm = () => {
 
     async function handlePost (e) {
         e.preventDefault()
-        saveAnswer(newLoc)
+        axios.post((process.env.NODE_ENV === 'production'
+            ? process.env.REACT_APP_BACK_END_PROD
+            : process.env.REACT_APP_BACK_END_DEV) + `/answer`, newLoc)
         .then(element => {
-            //this might work???
-            //console.log(element)
-            //setPuzzles([...puzzles, element])
+            console.log(element)
+            setPuzzles([...puzzles, element])
             setRerender(rerender+1)
             nav('/')
         })
