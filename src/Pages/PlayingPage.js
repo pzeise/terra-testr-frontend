@@ -2,7 +2,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { Wrapper, Status } from '@googlemaps/react-wrapper'
 import axios from 'axios'
-import qs from 'qs'
 import { useParams } from 'react-router'
 
 //Components
@@ -18,7 +17,7 @@ import OptionsOverlay from '../Components/OptionsOverlay'
 
 //misc
 import styles from './css/PlayingPage.module.css'
-import { measureDistance, recordWin } from '../functions/mapFunctions'
+import { measureDistance } from '../functions/mapFunctions'
 
 const PlayingPage = () => {
 
@@ -31,8 +30,8 @@ const PlayingPage = () => {
   const [displayHint, setDisplayHint] = useState(true)
   const [displayWin, setDisplayWin] = useState(false)
   const [displayLoss, setDisplayLoss] = useState(false)
-  const [displayOptions, setDisplayOptions] = useState({show: false})
-  const { user, hover, reRender, setUser } = useContext(UserContext)
+  const [displayOptions, setDisplayOptions] = useState({show: false, unlock: true})
+  const { user, hover, setUser } = useContext(UserContext)
   const answerID = useParams()
     
   const render = (status) => {
@@ -101,10 +100,11 @@ const PlayingPage = () => {
       {displayHint ? <Overlay hint={hint} setDisplayHint={setDisplayHint} distance={distance}/> : null}
       {displayWin ? <WinOverlay answer={answer} distance={distance}/> : null}
       {displayLoss ? <LossOverlay distance={distance}/> : null}
-      <OptionsOverlay displayOptions={displayOptions}/>
+      <OptionsOverlay displayOptions={displayOptions} setDisplayOptions={setDisplayOptions}/>
         <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} render={render}>
           {location ? <StreetView 
                         location={location}
+                        displayOptions={displayOptions}
                         key={hint}
                         className={styles.streetView}
                         /> 
