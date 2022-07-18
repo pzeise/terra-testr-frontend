@@ -64,7 +64,7 @@ const PlayingPage = () => {
   function onSubmit () {
     if(!click) return
     let test = measureDistance(click[0], location)
-    setDistance(test.toLocaleString("en-US"))
+    setDistance(Math.floor(test/1000).toLocaleString("en-US"))
 
     let x = hint + 1
     setHint(x)
