@@ -14,6 +14,7 @@ import SubmitButton from '../Components/SubmitButton'
 import Overlay from '../Components/Overlay'
 import WinOverlay from '../Components/WinOverlay'
 import LossOverlay from '../Components/LossOverlay'
+import OptionsOverlay from '../Components/OptionsOverlay'
 
 //misc
 import styles from './css/PlayingPage.module.css'
@@ -30,6 +31,7 @@ const PlayingPage = () => {
   const [displayHint, setDisplayHint] = useState(true)
   const [displayWin, setDisplayWin] = useState(false)
   const [displayLoss, setDisplayLoss] = useState(false)
+  const [displayOptions, setDisplayOptions] = useState({show: false})
   const { user, hover, reRender, setUser } = useContext(UserContext)
   const answerID = useParams()
     
@@ -99,6 +101,7 @@ const PlayingPage = () => {
       {displayHint ? <Overlay hint={hint} setDisplayHint={setDisplayHint} distance={distance}/> : null}
       {displayWin ? <WinOverlay answer={answer} distance={distance}/> : null}
       {displayLoss ? <LossOverlay distance={distance}/> : null}
+      <OptionsOverlay displayOptions={displayOptions}/>
         <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} render={render}>
           {location ? <StreetView 
                         location={location}
