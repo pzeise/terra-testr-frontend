@@ -5,34 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 const PuzzleList = () => {
-    const {user, puzzles, setPuzzles} = useContext(UserContext)
-    // const [scroll, setScroll] = useState(1)
-
-    // function handleScroll () {
-    //     console.log('scrolling')
-    //     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    //     setScroll(scroll+1)
-    // }
-
-    // useEffect(() => {
-    //     console.log('sorting puzzle list')
-    //     let runningList = puzzles
-    //     runningList.forEach(puzzle => {
-    //         let x = user.completed.find(el => el.id === puzzle._id)
-    //         if (x) {
-    //             puzzle.show = true
-    //             puzzle.hint = x.hints
-    //         } else puzzle.show = false
-    //     })
-    //     setPuzzles([...runningList])
-    // }, [user])
-
-
-    // useEffect(() => {
-    //     console.log('setting scroll')
-    //     window.addEventListener('scroll', handleScroll)
-    //     return () => window.removeEventListener('scroll', handleScroll)
-    // }, [])
+    const {puzzles} = useContext(UserContext)
 
     return (
         <section className={styles.container}>
