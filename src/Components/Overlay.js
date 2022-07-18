@@ -25,7 +25,7 @@ const Overlay = ({hint, setDisplayHint, distance}) => {
             {hint === 2 ? <div className={styles.overlayTitle}>Remember a landmark is here!</div> : null}
             {hint >= 1 ? <div className={styles.overlayDistance}>{`You were ${distance}km from the location`}</div> : null}
             {sec === 0 ? <div className={styles.overlayCounter}>GET READY!</div> : null}
-            {sec === 1 ? <div className={styles.overlayCounter}>GET SET!</div> : null}
+            {sec === 1 ? <div className={styles.overlayCounter}>SET!</div> : null}
             {sec === 2 ? <div className={styles.overlayCounter}>GO!</div> : null}
         </div>
     )
