@@ -29,7 +29,9 @@ const MainMenu = () => {
           else return 1
         })]
 
-        setRandom(x[x.length-1])
+        let idx_low = x.findIndex(element => !element.show)
+        let idx_final = Math.floor(Math.random() * (x.length - idx_low) ) + idx_low
+        setRandom(x[idx_final])
       }
     }, [puzzles])
 
@@ -45,7 +47,7 @@ const MainMenu = () => {
             <div className={styles.topOfPage}>
               <h2>Get ready to explore!</h2>
               <h1>Terra Testr</h1>
-              <div>Observe your surrondings and make guesses as to where you are! Each game consists of 3 hints within 10km of each other and the final hint will always be a landmark. Win the game by guessing within 10km of any hint. Most Importantly: Have fun!</div>
+              <div>Observe your surroundings and make guesses as to where you are! Each game consists of 3 hints within 10km of each other and the final hint will always be a landmark. Win the game by guessing within 10km of any hint. Most importantly: Have fun!</div>
               {random ? 
               <Link to={`/play/${random._id}`} style={{textDecoration: 'none'}}>
                 <div className={styles.randomButton}>Jump Right in</div>
