@@ -1,7 +1,6 @@
 import React from "react"
 import { createCustomEqual } from "fast-equals"
 import { isLatLngLiteral } from "@googlemaps/typescript-guards"
-import axios from "axios";
 
 export const deepCompareEqualsForMaps = createCustomEqual((deepEqual) => (a, b) => {
     if (
@@ -36,8 +35,4 @@ export function measureDistance(guess, answer) {
   let distance = Math.floor(window.google.maps.geometry.spherical.computeDistanceBetween(guess, answer))
   console.log(distance)
   return distance
-}
-
-export async function recordWin(user, answer, hint) {
-  
 }
