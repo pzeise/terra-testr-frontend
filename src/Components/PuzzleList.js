@@ -1,17 +1,40 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './css/puzzleList.module.css'
 import UserContext from '../UserContext'
 import { Link } from 'react-router-dom'
 
 
 const PuzzleList = () => {
-    const {puzzles} = useContext(UserContext)
+    const {user, puzzles} = useContext(UserContext)
+    const [spin, setSpin] = useState(false)
+
+    const setSpinOn = (e) => {
+        setSpin(true);
+      };
+    
+      const setSpinOff = (e) => {
+        setSpin(false);
+      };
 
     return (
         <section className={styles.container}>
             {puzzles.map((puzzle, idx) => (
                 <Link to={`/play/${puzzle._id}`} key={idx} style={{textDecoration: 'none'}}>
                     <div className={styles.card}>
+                        {/* {puzzle.owner.some(id => id === user._id) 
+                        ? <Link to={`/add/${puzzle._id}`} style={{textDecoration: 'none'}}>
+                            <div
+                                className={spin ? styles.editGearSpin : styles.editGear}
+                                onMouseEnter={setSpinOn}
+                                onMouseLeave={setSpinOff}
+                            >
+                                <img
+                                    className={styles.editGearActual}
+                                    src="/gear.svg"
+                                    alt="Add Marker"
+                                ></img>
+                            </div>
+                        </Link> : null} */}
                         <div className={styles.cardImage}>
                             <img className={styles.cardImageActual} 
                                  src={puzzle.show ? puzzle.endState.image : '/globe.png'} 
