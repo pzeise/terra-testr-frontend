@@ -16,7 +16,6 @@ const StreetView = ({ location, displayOptions }) => {
       setMap(
         new window.google.maps.StreetViewPanorama(ref.current, {
           position: location,
-          // clickToGo: false,
           addressControl: false,
           fullscreenControl: false,
           zoomControl: false,
