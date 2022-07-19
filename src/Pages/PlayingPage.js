@@ -69,7 +69,7 @@ const PlayingPage = () => {
     let x = hint + 1
     setHint(x)
 
-    if (test < 10000) {
+    if (test < 100000) {
       let copy = click
       setClick([copy, location])
       updateUserOnWin()
