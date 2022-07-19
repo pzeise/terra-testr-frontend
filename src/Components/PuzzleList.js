@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react'
+import React, { useContext } from 'react'
 import styles from './css/puzzleList.module.css'
 import UserContext from '../UserContext'
 import { Link } from 'react-router-dom'

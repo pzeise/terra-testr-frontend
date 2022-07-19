@@ -7,10 +7,11 @@ import axios from 'axios'
 const LocationForm = () => {
 
     const nav = useNavigate()
-    const [formState, setFormState] = useState({})
+    const {user, rerender, setRerender, puzzles, setPuzzles} = useContext(UserContext)
+
+    const [formState, setFormState] = useState({user: user._id})
     const [newLoc, setNewLoc] = useState({})
     const [entry, setEntry] = useState(0)
-    const {rerender, setRerender, puzzles, setPuzzles} = useContext(UserContext)
 
     const handleChange = e => {
         setFormState({...formState, [e.target.id]: e.target.value})
