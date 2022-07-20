@@ -1,33 +1,49 @@
 .topOfPage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    height: 50vh;
-    margin: 2vh 20vw 2vh 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 50vh;
+  margin: 2vh 20vw 2vh 20vw;
 }
 
-
-.topOfPage h1 {
-    font-size: 100px;
-    font-family: 'Karla', sans-serif;
-    padding-bottom: 3vh;
+.topOfPage > h1 {
+  font-size: 100px;
+  font-family: "Karla", sans-serif;
+  padding-bottom: 3vh;
 }
 
-.topOfPage h2 {
-    font-size: 40px;
-    font-family: 'Karla', sans-serif;
+.topOfPage > h2 {
+  font-size: 40px;
+  font-family: "Karla", sans-serif;
 }
 
-.topOfPage div {
-    font-size: 20px;
-    font-family: 'Inconsolata', monospace;
+.topOfPage > div {
+  font-size: 20px;
+  font-family: "Inconsolata", monospace;
 }
 
 .randomButton {
-    border-radius: 5rem;
-    background: linear-gradient(#2EBFA5, #7DDE92);
-    margin-top: 4vh;
-    padding: 1rem;
+  border-radius: 5rem;
+  background: linear-gradient(#2ebfa5, #7dde92);
+  margin-top: 4vh;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 820px) {
+    .topOfPage {
+        margin: 2vh 20vw 2vh 20vw;
+        height: 30vh;
+    }
+    .topOfPage > h1 {
+        display: none;
+    }
+    .topOfPage > h2 {
+        font-size: x-large;
+        margin-bottom: 2vh;
+    }
+    .topOfPage > div {
+        font-size: medium;
+    }
 }
