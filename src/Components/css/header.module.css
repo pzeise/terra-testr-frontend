@@ -1,3 +1,8 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
 .headerContainer > * {
   z-index: 5;
 }
@@ -10,12 +15,12 @@
   padding-top: 2vh;
   font-size: 45px;
   position: relative;
-  z-index: 5;
+  /* z-index: 5; */
 }
 
 .accountLink {
-  display: inline-block;
-  position: absolute;
+  /* display: inline-block;
+  position: absolute; */
   top: 0;
   right: 0;
 }

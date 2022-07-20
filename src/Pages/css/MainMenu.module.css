@@ -31,19 +31,43 @@
   padding: 1rem;
 }
 
-@media only screen and (max-width: 820px) {
-    .topOfPage {
-        margin: 2vh 20vw 2vh 20vw;
-        height: 30vh;
-    }
-    .topOfPage > h1 {
-        display: none;
-    }
-    .topOfPage > h2 {
-        font-size: x-large;
-        margin-bottom: 2vh;
-    }
-    .topOfPage > div {
-        font-size: medium;
-    }
+@media only screen and (max-width: 600px) {
+  .topOfPage {
+    margin: 2vh 20vw 2vh 20vw;
+    height: 50vh;
+  }
+  .topOfPage > h1 {
+    display: none;
+  }
+  .topOfPage > h2 {
+    font-size: x-large;
+    margin-bottom: 2vh;
+  }
+  .topOfPage > div {
+    font-size: medium;
+  }
 }
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .topOfPage {
+    margin: 2vh 20vw 2vh 20vw;
+    height: 30vh;
+  }
+  .topOfPage > h1 {
+    display: none;
+  }
+  .topOfPage > h2 {
+    font-size: x-large;
+    margin-bottom: 2vh;
+  }
+  .topOfPage > div {
+    font-size: medium;
+  }
+}
+
+
+/* min-width 768 */
+
+/* 992 */
+
+/* 1200 */
