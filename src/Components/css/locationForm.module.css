@@ -31,6 +31,7 @@
 .formNext {
     margin: 0 auto;
     width: 10vw;
+    min-width: 10rem;
     padding: 10px;
     font-size: 1rem;
     border: none;
@@ -62,6 +63,7 @@
 .formDelete {
     margin: 0 auto;
     width: 10vw;
+    min-width: 10rem;
     padding: 10px;
     font-size: 1rem;
     border: none;
@@ -69,3 +71,37 @@
     background-color: #c33c54;
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 600px) {
+  
+    .formInputs > label {
+        min-width: 40vw;
+        font-family: 'Karla', sans-serif;
+        font-size: large;
+    }
+
+    .formInputs > input {
+        min-width: 40vw;
+        font-family: 'Karla', sans-serif;
+        font-size: small;
+    }
+
+    .formDelete {
+    }
+  }
+  
+  @media only screen and (min-width: 600px) and (max-width: 820px) {
+    
+    .formInputs > label {
+        min-width: 30vw;
+        font-family: 'Karla', sans-serif;
+        font-size: larger;
+    }
+
+    .formInputs > input {
+        min-width: 30vw;
+        font-family: 'Karla', sans-serif;
+        font-size: medium;
+    }
+  }

@@ -1,80 +1,89 @@
 .headerContainer > * {
-	z-index: 5;
+  z-index: 5;
 }
 
 .pageTitle {
-	text-align: left;
-    padding: 2vh;
-    font-family: 'Karla', sans-serif;
-    color: #F8FFE5;
-	padding-top: 2vh;
-	font-size: 45px;
-	position: relative;
-	z-index: 5;
+  text-align: left;
+  padding: 2vh;
+  font-family: "Karla", sans-serif;
+  color: #f8ffe5;
+  padding-top: 2vh;
+  font-size: 45px;
+  position: relative;
+  z-index: 5;
 }
 
 .accountLink {
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	right: 0;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .dropdownButton {
-	margin: 1rem;
-    padding: 10px;
-    font-size: 15px;
-    border: none;
-	border-radius: 1rem;
-	min-width: 150px;
-    font-family: 'Inconsolata', monospace;
-    background: linear-gradient(#2EBFA5, #7DDE92);
-	cursor: pointer;
+  margin: 1rem;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 1rem;
+  min-width: 150px;
+  font-family: "Inconsolata", monospace;
+  background: linear-gradient(#2ebfa5, #7dde92);
+  cursor: pointer;
 }
-  
+
 .dropdownContainer {
-	position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
 }
-  
+
 .dropdownOptions {
-	display: none;
-    background: linear-gradient(#2EBFA5, #7DDE92);
-	min-width: 100px;
-	box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.1);
-	z-index: 5;
-    border: none;
-	border-radius: 1rem;
+  display: none;
+  background: linear-gradient(#2ebfa5, #7dde92);
+  min-width: 100px;
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+  border: none;
+  border-radius: 1rem;
 }
 
 .dropdownOptions a {
-	color: black;
-	padding: 10px 10px;
-	text-decoration: none;
-	display: block;
-	font-size: 12px;
-	text-align: center;
-    border: none;
-	border-radius: 1rem;
+  color: black;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  border: none;
+  border-radius: 1rem;
 }
-  
+
 .dropdownOptions a:hover {
-	background-color: #3083DC;
+  background-color: #3083dc;
 }
-  
+
 .dropdownContainer:hover .dropdownOptions {
-	display: block;
+  display: block;
 }
 
 .dropdownContainer:hover .dropdownOptions .myBooks {
-	display: none;
+  display: none;
 }
 
-a, a:hover, a:focus, a:active {
-    text-decoration: none;
-    color: inherit;
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+	.pageTitle {
+		font-size: xx-large;
+	}
 }

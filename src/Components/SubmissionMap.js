@@ -52,7 +52,7 @@ const SubmissionMap = ({ onClick, onIdle, children, style, ...options }) => {
   return (
   <>
     <div>
-        <div className={hover ? styles.guessing : styles.mapContainer} ref={ref} onMouseEnter={setHoverOn} onMouseLeave={setHoverOff} />
+        <div className={hover ? styles.guessing : styles.mapContainer} ref={ref} onMouseEnter={setHoverOn} onMouseLeave={setHoverOff} onTouch />
         {Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child, { map })
