@@ -170,3 +170,26 @@ input:checked + .slider:before {
     transform: rotate(360deg);
   }
 }
+
+
+@media only screen and (max-width: 600px) {
+  .options {
+    width: 90%;
+    max-width: 50vh;
+    max-height: 35vh;
+    opacity: 1;
+  }
+
+  .optionExitButton{
+    font-size: large;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 820px) {
+  .options {
+    width: 90%;
+    max-width: 50vh;
+    max-height: 25vh;
+    opacity: 1;
+  }
+}

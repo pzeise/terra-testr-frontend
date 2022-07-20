@@ -1,60 +1,84 @@
-
 .playingPage {
-    position: relative;
-    height: 100vh;
-    margin: 0;
+  position: relative;
+  height: 100vh;
+  margin: 0;
 }
 
-.mapContainer, .guessing {
-    border-radius: 5px;
-    height: 25vh;
-    width: 25vw;
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    z-index: 5;
-    opacity: 0.5;
-    transition: all .5s;
-    transition-delay: 1s;
-    cursor: crosshair;
+.mapContainer,
+.guessing {
+  border-radius: 5px;
+  height: 25vh;
+  width: 25vw;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  z-index: 5;
+  opacity: 0.5;
+  transition: all 0.5s;
+  transition-delay: 1s;
+  cursor: crosshair;
 }
 
 .guessing {
-    height: 40vh;
-    width: 40vw;
-    opacity: 1;
-    transition-delay: 0s;
+  height: 40vh;
+  width: 40vw;
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .streetView {
-    height: 100vh;
-  }
-
-.submissionBox {
-    cursor: crosshair;
+  height: 100vh;
 }
 
-.submitActive, .submitDull {
-    border: 0px;
-    position: absolute;
-    top: .5%;
-    right: 5%;
-    z-index: 5;
-    width: 25vw;
-    height: 4vh;
-    border-radius: 15px;
-    background-color: #4E4187;
-    opacity: 0.5;
-    color: #F8FFE5;
-    font-weight: bold;
-    font-size: large;
-    transition: all .5s;
-    transition-delay: 1s;
+.submissionBox {
+  cursor: crosshair;
+}
+
+.submitActive,
+.submitDull {
+  border: 0px;
+  position: absolute;
+  top: 0.5%;
+  right: 5%;
+  z-index: 5;
+  width: 25vw;
+  height: 4vh;
+  border-radius: 15px;
+  background-color: #4e4187;
+  opacity: 0.5;
+  color: #f8ffe5;
+  font-weight: bold;
+  font-size: large;
+  transition: all 0.5s;
+  transition-delay: 1s;
 }
 
 .submitActive {
-    width: 40vw;
-    transition-delay: 0s;
+  width: 40vw;
+  transition-delay: 0s;
+  opacity: 1;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .submitActive,
+  .submitDull, .mapContainer,
+  .guessing {
+    width: 90%;
+    max-width: 50vh;
+    max-height: 25vh;
     opacity: 1;
-    cursor: pointer;
+  }
+}
+
+/* Tablet Accessibility */
+@media only screen and (min-width: 600px) and (max-width: 820px) {
+    .submitActive,
+    .submitDull, .mapContainer,
+    .guessing {
+      width: 90%;
+      max-width: 50vh;
+      max-height: 25vh;
+      opacity: 1;
+    }
 }
