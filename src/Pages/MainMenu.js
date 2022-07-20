@@ -47,7 +47,7 @@ const MainMenu = () => {
             <div className={styles.topOfPage}>
               <h2>Get ready to explore!</h2>
               <h1>Terra Testr</h1>
-              <div>Observe your surroundings and make guesses as to where you are! Each game consists of 3 hints within 10km of each other and the final hint will always be a landmark. Win the game by guessing within 10km of any hint. Most importantly: Have fun!</div>
+              <div>Observe your surroundings and make guesses as to where you are! Each game consists of 3 hints within 10km of each other and the final hint will always be a landmark. Win the game by guessing within 50km of any hint. Most importantly: Have fun!</div>
               {random ? 
               <Link to={`/play/${random._id}`} style={{textDecoration: 'none'}}>
                 <div className={styles.randomButton}>Jump Right in</div>

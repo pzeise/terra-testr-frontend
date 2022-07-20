@@ -40,7 +40,8 @@ const AuthenticatePage = () => {
                 <Routes>
                   <Route path="/" element={<MainMenu />} />
                   <Route path="/play/:id" element={<PlayingPage />} />
-                  <Route path="/add" element={<AddLocation />} />
+                  <Route path="/add/" element={<AddLocation />} />
+                  <Route path="/add/:id" element={<AddLocation />} />
                 </Routes>
               </div>
             </div>

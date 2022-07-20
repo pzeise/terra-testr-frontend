@@ -3,14 +3,17 @@ import styles from './css/locationForm.module.css'
 import UserContext from '../UserContext'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import ConfirmDelete from './ConfirmDelete'
 
-const LocationForm = () => {
+const LocationForm = ({id}) => {
 
     const nav = useNavigate()
-    const [formState, setFormState] = useState({})
+    const {user, rerender, setRerender, puzzles, setPuzzles} = useContext(UserContext)
+
+    const [formState, setFormState] = useState({user: user._id})
     const [newLoc, setNewLoc] = useState({})
     const [entry, setEntry] = useState(0)
-    const {rerender, setRerender, puzzles, setPuzzles} = useContext(UserContext)
+    const [askDelete, setAskDelete] = useState(false)
 
     const handleChange = e => {
         setFormState({...formState, [e.target.id]: e.target.value})
@@ -27,15 +30,25 @@ const LocationForm = () => {
 
     async function handlePost (e) {
         e.preventDefault()
-        axios.post((process.env.NODE_ENV === 'production'
-            ? process.env.REACT_APP_BACK_END_PROD
-            : process.env.REACT_APP_BACK_END_DEV) + `/answer`, newLoc)
-        .then(element => {
-            console.log(element)
-            setPuzzles([...puzzles, element])
-            setRerender(rerender+1)
-            nav('/')
-        })
+        if (id) {
+            axios.put((process.env.NODE_ENV === 'production'
+                ? process.env.REACT_APP_BACK_END_PROD
+                : process.env.REACT_APP_BACK_END_DEV) + `/answer/${id}`, newLoc)
+            .then(element => {
+                nav('/')
+            })
+        } else {
+            axios.post((process.env.NODE_ENV === 'production'
+                ? process.env.REACT_APP_BACK_END_PROD
+                : process.env.REACT_APP_BACK_END_DEV) + `/answer`, newLoc)
+            .then(element => {
+                nav('/')
+            })
+        }
+    }
+
+    async function handleDelete () {
+        setAskDelete(true)
     }
 
     return (
@@ -119,8 +132,10 @@ const LocationForm = () => {
                 : null}
             </form> : null}
             {entry > 3 ? 
-            <button className={styles.formNext} onClick={handlePost}>Save</button> //real shit here
+            <button className={styles.formNext} onClick={handlePost}>Save</button>
             : null }
+            {id && !askDelete ? <button className={styles.formDelete} onClick={handleDelete}>Delete Location</button> : null}
+            {askDelete ? <ConfirmDelete id={id} setAskDelete={setAskDelete}/> : null}
         </div>
     )
 }

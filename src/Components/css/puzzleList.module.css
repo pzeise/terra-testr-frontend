@@ -21,6 +21,7 @@
   }
   
   .card {
+    position: relative;
     border-radius: 1rem;
     display: grid;
     grid-template-rows: 150px 75px;
@@ -52,3 +53,45 @@
   .cardTitle h4 {
     padding-top: .5rem;
   }
+
+
+.editGear,
+.editGearSpin {
+  height: 10%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  cursor: pointer;
+  margin: 2%;
+}
+
+.editGearActual {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem 1rem 0 0;
+  object-fit: cover;
+}
+
+.editGearSpin {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

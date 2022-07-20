@@ -1,12 +1,8 @@
-form {
+.formContainer > form {
     display: flex;
     justify-content: left;
     text-align: center;
     flex-direction: column;
-}
-
-.formContainer{
-
 }
 
 .formInputs {
@@ -61,4 +57,15 @@ form {
 .formTitle {
     margin-bottom: 1rem;
     font-family: 'Karla', sans-serif;
+}
+
+.formDelete {
+    margin: 0 auto;
+    width: 10vw;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+	border-radius: 1rem;
+    background-color: #c33c54;
+    cursor: pointer;
 }

@@ -43,6 +43,7 @@ const OptionsOverlay = ({ displayOptions, setDisplayOptions }) => {
           <div className={styles.cameraLock}>
             <label className={styles.switch}>
               <input
+                className={styles.switchInput}
                 type="checkbox"
                 checked={!displayOptions.unlock}
                 onChange={toggleCamera}
