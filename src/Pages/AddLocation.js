@@ -18,7 +18,7 @@ const AddLocation = () => {
             <h1 className={styles.addTitle}>{id ? 'Edit your Location' : 'Add a New Location'}</h1>
             <h3 className={styles.addSubtitle}>You'll need a City Name, Image link, and three Latitude and Longitude pairs.</h3>
             <h4 className={styles.addSubtitle}>(Remember the final pair needs to be of a landmark!)</h4>
-            <LocationForm/>
+            <LocationForm id={id}/>
         </div>
     </>
   )
