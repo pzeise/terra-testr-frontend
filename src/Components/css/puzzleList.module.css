@@ -46,11 +46,11 @@
     flex-direction: column;
   }
   
-  .cardTitle h3 {
+  .cardTitle > h3 {
     font-weight: 300;
   }
 
-  .cardTitle h4 {
+  .cardTitle > h4 {
     padding-top: .5rem;
   }
 
@@ -61,7 +61,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 5;
+  z-index: 10;
   cursor: pointer;
   margin: 2%;
 }
