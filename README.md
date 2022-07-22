@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Terra-Testr-Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Project Description**<br />
+The frontend for a reimagining of the game GeoGuesser, where you take on puzzles of three increasingly easier hints instead of GeoGuesser's format of earning points. The goal of the game is to guess within 50km of the hint you're currently on, each of the hints are located in increasingly populated area's with the final hint being in front of some sort of landmark. Each guess has a chance to win, with feedback on distance to the location if you were wrong.
 
-## Available Scripts
+**Link to Deployed API**<br />
+Live version deployed to Heroku at: https://terra-testr.netlify.app/
 
-In the project directory, you can run:
+**Technologies Used**<br />
+React, HTML5, CSS3, Javascript, Google Maps API, Google Streetview API, Google Distance API, Google oAuth 2.0
 
-### `npm start`
+**Link to Frontend Application**<br />
+Frontend Live Application: https://terra-testr-backend.herokuapp.com/<br />
+Frontend GitHub: https://github.com/pzeise/terra-testr-backend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Application Functionality**<br />
+Note, some differences in coloring from deployed application may be noticed in gifs below due to screen recording limitations. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Unsolved Problems**<br />
+Due to cross-domain restrictions and chosen deployment applications (Netlify and Heroku) being on the public-suffix list, we were unable to deploy our original authentication method. We originally set HTTP cookies to maintain user authentication sessions, but due to domain restrictions were unable to set cookies and switched to local storage user session validation. 
 
-### `npm test`
+**Installation Instructions**<br />
+1. Fork and clone down this repository.
+2. Install required packages using `npm i`.
+3. Obtain an API key from the Google Maps API site. 
+4. Assign the following env variables in an .env file at your root:
+    - DEV_DB_URL: Your development database URL.
+    - DB_URL: Your production database URL (if deploying).
+    - REACT_APP_FRONT_END_DEV: Your frontend dev URL (default: http://localhost:3000/)
+    - REACT_APP_BACK_END_DEV: Your backend dev URL (default: http://localhost:4000/)
+    - REACT_APP_MAPS_API_KEY: Your google API Key
+    - CLIENT_ID: Your google Client ID
+5. Run the backend API by following the instructions in the repo linked above. 
+6. Test the app functionality by running `npx nodemon server.js` to start the server. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Authors / Contributors**<br />
+Phil Zeise
