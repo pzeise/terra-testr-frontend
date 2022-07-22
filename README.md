@@ -14,7 +14,12 @@ Frontend Live Application: https://terra-testr-backend.herokuapp.com/<br />
 Frontend GitHub: https://github.com/pzeise/terra-testr-backend
 
 **Application Functionality**<br />
-Note, some differences in coloring from deployed application may be noticed in gifs below due to screen recording limitations. 
+Note, some differences in coloring from deployed application may be noticed in gifs below due to screen recording limitations.  
+- Ability to authenticate and set up user accounts using Google oAuth 2.0. <br />
+![TerraTesterLogin](https://user-images.githubusercontent.com/97360775/180528042-bd1f3b63-7466-4314-8f73-31895dcfaae5.gif)
+- Drop User into a random puzzle that involves guessing their location based on clues gleened from a street view panorama.
+![TerraTesterPlayGame](https://user-images.githubusercontent.com/97360775/180542170-71e32487-add2-4b52-acea-22633d46b1dc.gif)
+
 
 **Unsolved Problems**<br />
 Due to cross-domain restrictions and chosen deployment applications (Netlify and Heroku) being on the public-suffix list, we were unable to deploy our original authentication method. We originally set HTTP cookies to maintain user authentication sessions, but due to domain restrictions were unable to set cookies and switched to local storage user session validation. 
